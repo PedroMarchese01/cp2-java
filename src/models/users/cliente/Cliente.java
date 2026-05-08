@@ -92,5 +92,7 @@ public class Cliente implements Autenticavel, CriadorDePedido {
         this.logado = logado;
     }
 
-
+    public static ArrayList<Cliente> getClientes() {
+        return clientes;
+    }
 }
