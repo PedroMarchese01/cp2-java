@@ -17,15 +17,35 @@ public class ClienteController {
             int opt = sc.nextInt();
             sc.nextLine();
 
-            if(opt == 1) {
+            if (opt == 1) {
                 System.out.println("Digite o endereço:");
                 String endereco = sc.nextLine();
 
                 System.out.println("Produtos:");
 
-                for(Product p : Product.getProdutos()) {
+                for (Product p : Product.getProdutos()) {
                     System.out.println(p.getId() + " - " + p.getNome());
                 }
+
+                int idProduto = sc.nextInt();
+
+                Product produtoEscolhido = null;
+
+                for (Product p : Product.getProdutos()) {
+                    if (p.getId() == idProduto) {
+                        produtoEscolhido = p;
+                    }
+                }
+
+                if (produtoEscolhido != null) {
+                    cliente.criarPedido(endereco, produtoEscolhido);
+                } else {
+                    System.out.println("Produto não encontrado!");
+                }
+            } else if (opt == 2) {
+                cliente.verPedidos();
+            } else if (opt == 0) {
+                break;
             }
         }
     }

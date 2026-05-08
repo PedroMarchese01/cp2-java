@@ -8,29 +8,43 @@ public class MainController {
         System.out.println("Bem vindo ao E-commerce");
         while (true) {
             System.out.println("-----------------------");
-            System.out.println("1 - logar");
-            System.out.println("2 - cadastrar");
-            System.out.println("0 - sair");
+            System.out.println("1 - Logar");
+            System.out.println("2 - Cadastrar");
+            System.out.println("0 - Sair");
             System.out.println("-----------------------");
             int opt = sc.nextInt();
+            sc.nextLine();
 
-            if (opt == 1) {
-                System.out.println("-----------------------");
-                System.out.println("1 - logar como cliente");
-                System.out.println("2 - logar como Entregador");
-                System.out.println("-----------------------");
+            switch (opt) {
+                case 1:
+                    System.out.println("-----------------------");
+                    System.out.println("1 - logar como cliente");
+                    System.out.println("2 - logar como Entregador");
+                    System.out.println("-----------------------");
 
-                break;
-            }
-            if (opt == 2) {
+                    int loginOpt = sc.nextInt();
+                    sc.nextLine();
+                    if (loginOpt == 1) {
+                        LoginController.loginCliente();
+                    } else if (loginOpt == 2) {
 
-                break;
-            }
-            if (opt == 0) {
+                        LoginController.loginEntregador();
+                    } else {
+                        System.out.println("Opção inválida, digite um número de 1 - 2");
+                    }
 
-                break;
-            } else {
-                System.out.println("opção invalida, digite um numero de 0 - 1");
+                    break;
+
+                case 2:
+                    RegisterController.register();
+
+                    break;
+
+                case 0:
+                    System.out.println("Encerrando...");
+                    return;
+                default:
+                    System.out.println("Opção inválida, digite um número de 0 - 1");
             }
 
         }

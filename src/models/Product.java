@@ -13,6 +13,8 @@ public class Product {
     public Product(String nome) {
         if (!nome.isBlank()) {
             id = ++count;
+            this.nome = nome;
+
             produtos.add(this);
         } else {
             throw new RuntimeException("Nome do produto deve conter pelomenos 1 caracter");
