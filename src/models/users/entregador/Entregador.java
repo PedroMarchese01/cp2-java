@@ -30,6 +30,9 @@ public abstract class Entregador implements Autenticavel, RealizaEntrega {
         entregadores.add(this);
     }
 
+    // método abstrato
+    public abstract void tipoDeEntrega();
+
     //Autenticavel
     //----------------
     public boolean logar(String email, String password) {
