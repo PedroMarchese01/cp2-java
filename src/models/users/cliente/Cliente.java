@@ -17,6 +17,8 @@ public class Cliente implements Autenticavel, CriadorDePedido {
     private static int count = 0;
     private ArrayList<Entrega> pedidos = new ArrayList<>();
 
+    private static ArrayList<Cliente> clientes = new ArrayList<>();
+
     public Cliente(String nome, String email, String password) {
         if (nome.isBlank() || password.isBlank() || email.isBlank()) {
             throw new RuntimeException("porfavor insira todos os dados");
@@ -25,6 +27,8 @@ public class Cliente implements Autenticavel, CriadorDePedido {
         this.email = email;
         this.password = password;
         id = ++count;
+
+        clientes.add(this);
     }
 
     //autenticavel
@@ -58,6 +62,8 @@ public class Cliente implements Autenticavel, CriadorDePedido {
             return false;
         }
         Entrega entrega = new Entrega(endereco, product, this);
+
+        pedidos.add(entrega);
 
         return true;
     }
