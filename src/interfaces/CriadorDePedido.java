@@ -1,6 +1,8 @@
 package interfaces;
 
+import models.Product;
+
 public interface CriadorDePedido {
-    public void criarPedido();
+    public boolean criarPedido(String endereco, Product product);
     public void verPedidos();
 }

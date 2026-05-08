@@ -1,4 +1,8 @@
 package models.users.entregador;
 
-public class EntregadorCarro {
+public class EntregadorCarro extends Entregador {
+
+    public EntregadorCarro(String name, String email, String password){
+        super(name, email, password);
+    }
 }

@@ -2,6 +2,8 @@ package models.users.entregador;
 
 import interfaces.Autenticavel;
 import interfaces.RealizaEntrega;
+import models.Entrega;
+import models.Status;
 
 import java.util.ArrayList;
 
@@ -15,6 +17,7 @@ public abstract class Entregador implements Autenticavel, RealizaEntrega {
     private boolean logado = false;
 
     private static ArrayList<Entregador> entregadores = new ArrayList<>();
+    private ArrayList<Entrega> entregasRealizadas = new ArrayList<>();
 
     private static int count = 0;
 
@@ -58,10 +61,32 @@ public abstract class Entregador implements Autenticavel, RealizaEntrega {
     //Realiza Entrega
     //----------------
     public void realizarEntrega(){
+        Entrega pedido = Entrega.retirarPedido(this);
+        if(pedido != null){
+            System.out.println("Entrega de " + pedido.getCliente().getNome());
+            System.out.println("Entrega em: " + pedido.getEndereco_de_entrega());
+            System.out.println("Retire na em nossa matriz agora!");
+
+            Status status = pedido.getStatus();
+            status.setStatusEmRota();
+            status.setStatusConcluido();
+            entregasRealizadas.add(pedido);
+        }
 
     }
     public void verEntregasRealizadas(){
-
+        if(entregasRealizadas.isEmpty()){
+            System.out.println("Nenhuma entrega realizada");
+        }else{
+            System.out.println("Entregas:");
+            System.out.println("-------------------------------------");
+            for(Entrega i : entregasRealizadas){
+                System.out.println("id: " + i.getId());
+                System.out.println("id: " + i.getEndereco_de_entrega());
+                System.out.println("Cliente: " + i.getCliente().getNome());
+                System.out.println("-------------------------------------");
+            }
+        }
     }
 
     //setters
@@ -69,4 +94,19 @@ public abstract class Entregador implements Autenticavel, RealizaEntrega {
         logado = value;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getVeiculo() {
+        return veiculo;
+    }
+
+    public void setVeiculo(String veiculo) {
+        this.veiculo = veiculo;
+    }
 }
