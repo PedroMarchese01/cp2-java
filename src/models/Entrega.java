@@ -17,21 +17,21 @@ public class Entrega {
     private static int count = 0;
     private static ArrayList<Entrega> entregas = new ArrayList<>();
 
-    public Entrega(String endereco_de_entrega, Product produto, Cliente cliente){
-        if(endereco_de_entrega.isBlank()){
+    public Entrega(String endereco_de_entrega, Product produto, Cliente cliente) {
+        if (endereco_de_entrega.isBlank()) {
             throw new RuntimeException("Porfavor insira um endereço de entrega com pelomenos 1 caracter");
         }
         id = ++count;
         this.endereco_de_entrega = endereco_de_entrega;
-        this.produto =produto;
+        this.produto = produto;
         this.cliente = cliente;
         entregas.add(this);
         System.out.println("Pedido Adicionado em nossas entregas com sucesso!");
     }
 
-    public static Entrega retirarPedido(Entregador entregador){
+    public static Entrega retirarPedido(Entregador entregador) {
 
-        if(entregas.isEmpty()){
+        if (entregas.isEmpty()) {
             System.out.println("não há entregas disponiveis");
             return null;
         }

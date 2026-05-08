@@ -7,7 +7,6 @@ import models.Status;
 
 import java.util.ArrayList;
 
-
 public abstract class Entregador implements Autenticavel, RealizaEntrega {
     private int id;
     private String name;
@@ -23,7 +22,7 @@ public abstract class Entregador implements Autenticavel, RealizaEntrega {
 
     //contrutor
 
-    public Entregador(String name, String email, String password){
+    public Entregador(String name, String email, String password) {
         id = ++count;
         this.name = name;
         this.email = email;
@@ -33,14 +32,14 @@ public abstract class Entregador implements Autenticavel, RealizaEntrega {
 
     //Autenticavel
     //----------------
-    public boolean logar(String email, String password){
+    public boolean logar(String email, String password) {
 
-        if(this.logado){
+        if (this.logado) {
             System.out.println("Usuário já logado");
             return false;
         }
 
-        if(this.email.equals(email) && this.password.equals(password)){
+        if (this.email.equals(email) && this.password.equals(password)) {
             this.logado = true;
             return true;
         }
@@ -49,20 +48,20 @@ public abstract class Entregador implements Autenticavel, RealizaEntrega {
     }
 
 
-    public boolean isLogado(String email){
+    public boolean isLogado(String email) {
         return logado;
     }
 
-    public void logout(String email){
+    public void logout(String email) {
         setLogado(false);
     }
 
 
     //Realiza Entrega
     //----------------
-    public void realizarEntrega(){
+    public void realizarEntrega() {
         Entrega pedido = Entrega.retirarPedido(this);
-        if(pedido != null){
+        if (pedido != null) {
             System.out.println("Entrega de " + pedido.getCliente().getNome());
             System.out.println("Entrega em: " + pedido.getEndereco_de_entrega());
             System.out.println("Retire na em nossa matriz agora!");
@@ -74,13 +73,14 @@ public abstract class Entregador implements Autenticavel, RealizaEntrega {
         }
 
     }
-    public void verEntregasRealizadas(){
-        if(entregasRealizadas.isEmpty()){
+
+    public void verEntregasRealizadas() {
+        if (entregasRealizadas.isEmpty()) {
             System.out.println("Nenhuma entrega realizada");
-        }else{
+        } else {
             System.out.println("Entregas:");
             System.out.println("-------------------------------------");
-            for(Entrega i : entregasRealizadas){
+            for (Entrega i : entregasRealizadas) {
                 System.out.println("id: " + i.getId());
                 System.out.println("id: " + i.getEndereco_de_entrega());
                 System.out.println("Cliente: " + i.getCliente().getNome());
@@ -90,7 +90,7 @@ public abstract class Entregador implements Autenticavel, RealizaEntrega {
     }
 
     //setters
-    public void setLogado(Boolean value){
+    public void setLogado(Boolean value) {
         logado = value;
     }
 

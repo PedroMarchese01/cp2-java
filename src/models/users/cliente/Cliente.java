@@ -7,7 +7,7 @@ import models.Product;
 
 import java.util.ArrayList;
 
-public class Cliente implements Autenticavel,CriadorDePedido {
+public class Cliente implements Autenticavel, CriadorDePedido {
     private int id;
     private String nome;
     private String email;
@@ -17,8 +17,8 @@ public class Cliente implements Autenticavel,CriadorDePedido {
     private static int count = 0;
     private ArrayList<Entrega> pedidos = new ArrayList<>();
 
-    public Cliente(String nome, String email, String password){
-        if(nome.isBlank() || password.isBlank() || email.isBlank()){
+    public Cliente(String nome, String email, String password) {
+        if (nome.isBlank() || password.isBlank() || email.isBlank()) {
             throw new RuntimeException("porfavor insira todos os dados");
         }
         this.nome = nome;
@@ -28,14 +28,14 @@ public class Cliente implements Autenticavel,CriadorDePedido {
     }
 
     //autenticavel
-    public boolean logar(String email, String password){
+    public boolean logar(String email, String password) {
 
-        if(this.logado){
+        if (this.logado) {
             System.out.println("Usuário já logado");
             return false;
         }
 
-        if(this.email.equals(email) && this.password.equals(password)){
+        if (this.email.equals(email) && this.password.equals(password)) {
             this.logado = true;
             return true;
         }
@@ -44,28 +44,29 @@ public class Cliente implements Autenticavel,CriadorDePedido {
     }
 
 
-    public boolean isLogado(String email){
+    public boolean isLogado(String email) {
         return logado;
     }
 
-    public void logout(String email){
+    public void logout(String email) {
         setLogado(false);
     }
 
     //criar pedidos
-    public boolean criarPedido(String endereco, Product product){
-        if(endereco.isBlank()){
+    public boolean criarPedido(String endereco, Product product) {
+        if (endereco.isBlank()) {
             return false;
         }
-       Entrega entrega =  new Entrega(endereco,product,this );
+        Entrega entrega = new Entrega(endereco, product, this);
 
-       return true;
+        return true;
     }
-    public void verPedidos(){
-        if(pedidos.isEmpty()){
+
+    public void verPedidos() {
+        if (pedidos.isEmpty()) {
             System.out.println("nenhum pedido realizado");
-        }else{
-            for(Entrega i : pedidos){
+        } else {
+            for (Entrega i : pedidos) {
                 System.out.println("id: " + i.getId());
                 System.out.println("produto: " + i.getProduto().getNome());
                 System.out.println("Local de entrega: " + i.getEndereco_de_entrega());
@@ -76,7 +77,6 @@ public class Cliente implements Autenticavel,CriadorDePedido {
     }
 
     //setters e getters
-
 
     public String getNome() {
         return nome;
