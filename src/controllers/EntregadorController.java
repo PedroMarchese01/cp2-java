@@ -1,5 +1,6 @@
 package controllers;
 
+import models.Entrega;
 import models.users.entregador.Entregador;
 
 import java.util.Scanner;
@@ -9,6 +10,7 @@ public class EntregadorController {
         Scanner sc = new Scanner(System.in);
 
         while (true) {
+            System.out.println("Entregas disponíveis: " + Entrega.getEntregas().size());
             System.out.println("1 - Realizar entrega");
             System.out.println("2 - Ver entregas realizadas");
             System.out.println("0 - Sair");

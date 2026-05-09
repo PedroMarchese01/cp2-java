@@ -109,11 +109,11 @@ public abstract class Entregador implements Autenticavel, RealizaEntrega {
         return veiculo;
     }
 
-    public void setVeiculo(String veiculo) {
-        this.veiculo = veiculo;
-    }
-
     public static ArrayList<Entregador> getEntregadores() {
         return entregadores;
+    }
+
+    public void setVeiculo(String veiculo) {
+        this.veiculo = veiculo;
     }
 }

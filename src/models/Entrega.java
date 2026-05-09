@@ -73,6 +73,10 @@ public class Entrega {
         return produto;
     }
 
+    public static ArrayList<Entrega> getEntregas() {
+        return entregas;
+    }
+
     public void setEntregador(Entregador entregador) {
         this.entregador = entregador;
     }

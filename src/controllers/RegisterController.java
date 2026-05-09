@@ -11,8 +11,8 @@ public class RegisterController {
         Scanner sc = new Scanner(System.in);
         System.out.println("-----------------------");
         System.out.println("1 - Cadastrar Cliente");
-        System.out.println("1 - Cadastrar Entregador Carro");
-        System.out.println("1 - Cadastrar Cliente Moto");
+        System.out.println("2 - Cadastrar Entregador Carro");
+        System.out.println("3 - Cadastrar Cliente Moto");
         System.out.println("-----------------------");
 
         int opt = sc.nextInt();
