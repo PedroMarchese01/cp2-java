@@ -40,7 +40,7 @@ public class LoginController {
         for (Entregador e : Entregador.getEntregadores()) {
             if (e.logar(email, senha)) {
                 System.out.println("Login realizado com sucesso!");
-
+                System.out.println("Tipo de entregador: " + e.getVeiculo());
                 EntregadorController.menuEntregador(e);
 
                 return;

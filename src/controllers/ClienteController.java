@@ -45,6 +45,9 @@ public class ClienteController {
             } else if (opt == 2) {
                 cliente.verPedidos();
             } else if (opt == 0) {
+                cliente.logout("");
+
+                System.out.println("Saindo...");
                 break;
             }
         }

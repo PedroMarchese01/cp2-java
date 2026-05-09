@@ -20,6 +20,9 @@ public class EntregadorController {
             } else if (opt == 2) {
                 entregador.verEntregasRealizadas();
             } else if (opt == 0) {
+                entregador.logout("");
+
+                System.out.println("Saindo...");
                 break;
             }
         }
