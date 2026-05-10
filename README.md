@@ -97,7 +97,7 @@ git clone https://github.com/PedroMarchese01/cp2-java
 
 # Diagrama de Classes UML
 
-![Diagrama UML](./images/uml.png)
+![Diagrama UML](./images/diagram.png)
 
 ---
 
